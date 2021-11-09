@@ -1,0 +1,47 @@
+<view class='view-page'>
+  <navbar bg-color="#1296db" page-name="企业注册登记"></navbar>
+  <view class="page-content">
+    <view class="introduce" >
+      <view class="intro_pic">
+          <image src="/assets/img/index_img01.svg" mode="aspectFit" />
+      </view>
+      <view class="intro-info">
+            <text>注册登记管理 小程序注册登记管理，方便、快捷！</text>
+      </view>
+    </view>
+    <view class="btn_Group">
+      <view class="btn_item" bindtap="registration" id="{{item.id}}">
+        <view class="svg_pic">
+            <image src="/assets/img/index_img02.svg" mode="aspectFit" />
+        </view>
+        <view class="btn-text">  
+            <text>企业机构设立</text>
+        </view>
+      </view>
+      <view class="btn_item" bindtap="registration" id="{{item.id}}">
+        <view class="svg_pic">
+            <image src="/assets/img/index_img02.svg" mode="aspectFit" />
+        </view>
+        <view class="btn-text">
+            <text>企业机构地址变更</text>
+        </view>
+      </view>
+      <view class="btn_item" bindtap="registration" id="{{item.id}}">
+        <view class="svg_pic">
+            <image src="/assets/img/index_img02.svg" mode="aspectFit" />
+        </view>
+        <view class="btn-text">
+            <text>企业跨市县迁移</text>
+        </view>
+      </view>
+      <view class="btn_item" bindtap="registration" id="{{item.id}}">
+        <view class="svg_pic">
+            <image src="/assets/img/index_img03.svg" mode="aspectFit" />
+        </view>
+        <view class="btn-text">
+            <text>我的事项</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

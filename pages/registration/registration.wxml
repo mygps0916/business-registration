@@ -1,0 +1,205 @@
+<view class='view-page'>
+  <navbar bg-color="#1296db" page-name="企业注册登记"></navbar>
+  <view class="content">
+    <form class="page__bd" bindsubmit="formSubmit" bindreset="formReset">
+      <view class="compnay-info">
+        <view class="section">
+          <view class="nameTitle">企业/机构名称：</view>
+          <input class="input" name="companyName" placeholder="请输入企业/机构名称" />
+        </view>
+        <view class="section">
+          <view class="section__title">机构属性:</view>
+          <view class="section_gap">
+          <view >
+          <radio-group  class="radio-group"  bindchange="compropChange">
+                <radio class="radio" wx:for-items="{{comProps}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                 <view>{{item.name}}</view>
+                </radio>
+            </radio-group>
+          </view>
+          </view>
+        </view>
+        <view class="section">
+          <view class="section__title">机构类别:</view>
+          <view class="section_gap" >
+          <view>
+          <radio-group  class="radio-group" bindchange="comcategChange">
+                <radio class="radio" wx:for-items="{{comCategs}}" wx:if="{{item.prop==prop}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                <view>{{item.name}}</view>
+                </radio>
+            </radio-group>
+          </view>
+          </view>
+        </view>
+        <view class="section">
+          <view class="section__title">申报对象:</view>
+          <view class="section_gap">
+            <radio-group class="radio-group" bindchange="decobjectChange">
+              <radio class="radio" wx:for-items="{{decObjects}}" wx:if="{{item.categ==categ}}"  wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                <view class="input_name">{{item.name}}
+                <input wx:if="{{(item.name=='事业法人')&&(busFlag)}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入事业法人全称" />
+                <input wx:if="{{(item.name=='企业法人')&&(comFlag)}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入企业法人全称" />
+                <input wx:if="{{item.name=='其他组织'}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入其他组织全称" />
+                </view>
+              </radio>
+          </radio-group>
+        </view>
+        </view>
+        <view class="section">
+          <view class="section__title">申报事项:</view>
+          <view class="section_gap">
+            <radio-group class="radio-group" bindchange="decitemChange">
+              <radio class="radio" wx:for-items="{{decItems}}" wx:if="{{(item.categ==categ)&&(item.objName==objName)}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                  <!-- <text>{{item.name}}</text> -->
+                  <view>{{item.name}}</view>
+              </radio>
+            </radio-group>
+        </view>
+        </view>
+        <view class="section">
+          <view class="hr"></view>
+        </view>
+      <view class="section">
+      <view class="section-title">申报方式：</view>
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox">
+          <checkbox value="cb" />委托代办
+          </label>
+        </checkbox-group>
+      </view>
+      <view class="section">
+        <text class="section__title">社会统计一信用代码：</text>
+        <input class="input" style="width: 300rpx;" name="creditCode" placeholder="请输入信用代码" />
+      </view>
+      <view class="section">
+        <text class="section__title">法定代表人姓名：</text>
+        <input class="input" name="legalName" placeholder="请输入法人姓名" />
+      </view>
+        <view class="section">
+        <text class="section__title">联系电话：</text>
+        <input class="input" name="legalPhone"  placeholder="请输入电话号码" />
+      </view>
+      <view class="section">
+        <text class="section__title">身份证号：</text>
+        <input class="input" name="legalNum" placeholder="请输入身份证号码" />
+      </view>
+      <view wx:if="{{agentFlag}}" class="section_agent">
+      <view class="section">
+          <view class="hr"></view>
+        </view>
+      <view class="section">
+        <text class="section__title">代办人员姓名：</text>
+        <input class="input" name="agentName" placeholder="请输入代办人姓名" />
+      </view>
+      <view class="section">
+        <text class="section__title">联系电话：</text>
+        <input class="input"  name="agentPhone" placeholder="请输入电话号码" />
+      </view>
+      <view class="section">
+        <text class="section__title">身份证号：</text>
+        <input class="input" name="agentNum" placeholder="请输入身份证号码" />
+      </view>
+    </view>
+    </view>
+    <!-- 拍摄上传授权委托书 -->
+    <view class="section_agent" wx:if="{{agentFlag}}">
+    <view class="IDCart_img_item">
+        <view class="idCardTitle">授权委托书</view>
+        <view class="comp_idPhoto_item">
+          <view class="comp_idPhoto" name="frontSrc" bindtap="goFront">
+            <!-- 初始未上传图片= -->
+            <view wx:if="{{ frontShow }}">
+              <image class="comp_idPhoto_img" src="/assets/img/idcard_front.png"></image>
+              <view class="idPhoto_txt">点击拍摄上传授权委托书</view>
+            </view>
+            <!-- END -->
+            <!-- 用户拍照完显示预览的图片 -->
+            <image wx:if="{{ !frontShow }}" class="front" src="{{ frontSrc }}"></image>
+            <!-- END -->
+          </view>
+        </view>
+      </view>
+    </view>
+      <!-- 拍摄上传营业执照 -->
+      <view class="section_addrchange" wx:if="{{addrchange}}">
+      <view class="IDCart_img_item">
+        <view class="idCardTitle">营业执照副本</view>
+        <view class="comp_idPhoto_item">
+          <view class="comp_idPhoto" name="frontSrc" bindtap="goFront">
+            <!-- 初始未上传图片= -->
+            <view wx:if="{{ frontShow }}">
+              <image class="comp_idPhoto_img" src="/assets/img/idcard_front.png"></image>
+              <view class="idPhoto_txt">点击拍摄营业执照副本正面</view>
+            </view>
+            <!-- END -->
+            <!-- 用户拍照完显示预览的图片 -->
+            <image wx:if="{{ !frontShow }}" class="front" src="{{ frontSrc }}"></image>
+            <!-- END -->
+          </view>
+        </view>
+      </view>
+    </view>
+     <!-- 拍摄上传法定代表人身份证 -->
+      <view class="IDCart_img_item">
+        <view class="idCardTitle">法定代表人身份证正反面</view>
+        <view class="item_idPhoto">
+          <view class="idPhoto" name="frontSrc" bindtap="goFront">
+            <!-- 初始未上传图片= -->
+            <view wx:if="{{ frontShow }}">
+              <image class="idPhoto_img" src="/assets/img/idcard_front.png"></image>
+              <view class="idPhoto_txt">点击拍摄身份证正面</view>
+            </view>
+            <!-- END -->
+            <!-- 用户拍照完显示预览的图片 -->
+            <image wx:if="{{ !frontShow }}" class="front" src="{{ frontSrc }}"></image>
+            <!-- END -->
+          </view>
+          <view class="idPhoto" name="backSrc" bindtap="goBack">
+            <!-- 初始未上传图片= -->
+            <view wx:if="{{ backShow }}">
+              <image class="idPhoto_img" src="/assets/img/idcard_back.png"></image>
+              <view class="idPhoto_txt">点击拍摄身份证反面</view>
+            </view>
+            <!-- END -->
+            <!-- 用户拍照完显示预览的图片 -->
+            <image wx:if="{{ !backShow }}" class="front" name="backSrc" src="{{ backSrc }}"></image>
+            <!-- END -->
+          </view>
+        </view>
+      </view>
+      <!-- 拍摄上传代办人身份证 -->
+      <view wx:if="{{agentFlag}}" class="section_agent">
+      <view class="IDCart_img_item">
+        <view class="idCardTitle">代办人员身份证正反面</view>
+        <view class="item_idPhoto">
+          <view class="idPhoto" name="frontSrc" bindtap="goFront">
+            <!-- 初始未上传图片= -->
+            <view wx:if="{{ frontShow }}">
+              <image class="idPhoto_img" src="/assets/img/idcard_front.png"></image>
+              <view class="idPhoto_txt">点击拍摄身份证正面</view>
+            </view>
+            <!-- END -->
+            <!-- 用户拍照完显示预览的图片 -->
+            <image wx:if="{{ !frontShow }}" class="front" src="{{ frontSrc }}"></image>
+            <!-- END -->
+          </view>
+          <view class="idPhoto" name="backSrc" bindtap="goBack">
+            <!-- 初始未上传图片= -->
+            <view wx:if="{{ backShow }}">
+              <image class="idPhoto_img" src="/assets/img/idcard_back.png"></image>
+              <view class="idPhoto_txt">点击拍摄身份证反面</view>
+            </view>
+            <!-- END -->
+            <!-- 用户拍照完显示预览的图片 -->
+            <image wx:if="{{ !backShow }}" class="front" name="backSrc" src="{{ backSrc }}"></image>
+            <!-- END -->
+          </view>
+        </view>
+      </view>
+    </view>
+      <view class="btn-area">
+        <button style="width: auto" type="primary" formType="submit">提交</button>
+      </view>
+    </form>
+  </view>
+</view>

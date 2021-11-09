@@ -1,0 +1,255 @@
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    compyInfo:{},
+    comProps: [],
+    comCategs:[],
+    decObjects:[],
+    decItems:[],
+    prop:"非营利性",
+    categ:"民办非企业",
+    objName:"自然人",
+    busFlag:false,
+    comFlag:false,
+    agentFlag:false,
+    addrchange:false,
+    //旅客姓名：
+    passengerName: '',
+    //旅客性别：
+    passengeSex: '',
+    //旅客电话：
+    phone: '',
+    //证件类型：
+    idcardType: '',
+    //证件类型：
+    idcardNum: '',
+     // 判断显示文字还是图片(预览图片标识)
+		frontShow: true,
+		// 身份证正面路径
+		frontSrc: '',
+		//判断显示文字还是图片(预览图片标识)
+    backShow: true,
+		//身份证反面路径
+    backSrc: '',
+    passenger: {}
+  },
+  compropChange:function(e){
+    var comProp = e.detail.value;
+    //this.setData({comProp:comProp});
+    console.log("单选框value:",e.detail.value);
+    if(comProp=="营利性"){
+      var defCateg ='企业'
+      var defObject ='企业法人'
+      this.setData({categ:defCateg});
+      this.setData({objName:defObject});
+    }else{
+      var defCateg ='民办非企业'
+      var defObject ='自然人'
+      this.setData({categ:defCateg});
+      this.setData({objName:defObject});
+      
+    }
+    this.setData({addrchange:false});
+    this.setData({prop:comProp});
+  },
+  comcategChange:function(e){
+    var comCateg = e.detail.value;
+    if(comCateg == '社会团体'){
+      var defObject ='自然人';
+      this.setData({objName:defObject});
+  
+    }else if(comCateg == '民办非企业'){
+      var defObject ='自然人';
+      this.setData({objName:defObject});
+     
+    }else if(comCateg == '农民专业合作社'){
+      var defObject ='其他组织';
+      this.setData({objName:defObject});
+  
+    }else if(comCateg == '农民专业合作社分支机构'){
+      var defObject ='自然人';
+      this.setData({objName:defObject});
+
+    }else if(comCateg == '个体工商户'){
+      var defObject ='自然人';
+      this.setData({objName:defObject});
+    }else if(comCateg == '企业'){
+      var defObject ='企业法人';
+      this.setData({objName:defObject});
+    }
+    this.setData({addrchange:false});
+    this.setData({categ:comCateg});
+    console.log("单选框value:",e.detail.value);
+  },
+  decobjectChange:function(e){
+    var decObject = e.detail.value;
+    this.setData({objName:decObject});
+    console.log("单选框value:",e.detail.value);
+    if(e.detail.value == '事业法人'){
+      this.setData({busFlag:true});
+      this.setData({comFlag:false});
+     
+    }else if(e.detail.value == '企业法人'){
+      this.setData({busFlag:false});
+      this.setData({comFlag:true});
+      
+    }else {
+      this.setData({busFlag:false});
+      this.setData({comFlag:false});
+    }
+    this.setData({addrchange:false});
+  },
+  decitemChange:function(e){
+    var decItem = e.detail.value;
+   
+    if(decItem == '区范围内变更地址'){
+      this.setData({addrchange:true});
+    }else if(decItem == '变更地址'){
+      this.setData({addrchange:true});
+    }else{
+      this.setData({addrchange:false});
+    }
+    //this.setData({decItem:decItem});
+    console.log("单选框value:",e.detail.value);
+  },
+  checkboxChange:function(e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    var agentFlag = false;
+    var agentCb = new Object();
+    agentCb = e.detail.value;
+    console.log('checkbox发生change事件，携带value值为：', agentCb)
+    if(agentCb[0]=='cb'){
+      agentFlag=true;
+      this.setData({agentFlag:agentFlag});
+    }else{
+      agentFlag=false;
+      this.setData({agentFlag:agentFlag});
+    }
+  },
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    var passenger = new Object();
+    passenger.passengerName = e.detail.value.passengerName;
+    passenger.region = e.detail.value.region;
+    passenger.phone = e.detail.value.phone;
+    passenger.idcardType = e.detail.value.idcardType;
+    passenger.idcardNum = e.detail.value.idcardNum;
+    var imageSrc= [];
+    imageSrc.push(this.frontSrc);
+    imageSrc.push(this.backSrc);
+    passenger.imageSrc = imageSrc;
+    this.setData({passenger:passenger});
+    //网络请求
+    // wx.request({
+    //   url: 'example.php', //仅为示例，并非真实的接口地址
+    //   data: this.passenger,
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success (res) {
+    //     console.log(res.data)
+    //   }
+    // });
+  },
+  formReset: function () {
+    console.log('form发生了reset事件')
+  },
+  imageRotate: function () {
+    // this.animation.rotate(45).step()
+    // this.setData({animation: this.animation.export()})
+  },
+   // 拍摄身份证正面-跳转到拍摄页
+   goFront: function() {
+    wx.navigateTo({
+			url: '/pages/frontOfIDCard/frontOfIDCard',
+    });
+    console.log("goFront 正面拍照的路径：",this.frontSrc);
+  },
+  // 拍摄身份证反面-跳转到拍摄页
+  goBack: function() {
+    wx.navigateTo({
+			url: '/pages/backOfIDCard/backOfIDCard',
+    });
+    console.log("goBack 反面拍照的路径：",this.backSrc)
+  },
+  //省市区选择器：
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
+  },
+
+  initConfig: function(){
+    var that = this;
+      var comProps = wx.getStorageSync('comProps');
+      that.setData({comProps:comProps});
+      var comCategs=wx.getStorageSync('comCategs');
+      that.setData({comCategs:comCategs});
+      var decObjects = wx.getStorageSync('decObjects');
+      that.setData({decObjects:decObjects});
+      var decItems = wx.getStorageSync('decItems');
+      that.setData({decItems:decItems});
+   
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+     // 页面初始化 options为页面跳转所带来的参数
+     this.initConfig();
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    // this.animation = wx.createAnimation()
+    // this.imageRotate();
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.frontSrc = wx.getStorageSync('frontSrc');
+    this.backSrc = wx.getStorageSync('backSrc');
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
+  }
+})

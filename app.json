@@ -1,0 +1,38 @@
+{
+  "pages":[
+    "pages/registration/registration",
+    "pages/index/index",
+    "pages/frontOfIDCard/frontOfIDCard",
+    "pages/backOfIDCard/backOfIDCard",
+    "pages/logs/logs"
+  ],
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "ligth",
+    "list": [
+        {
+            "pagePath": "pages/index/index",
+            "iconPath": "assets/icon/icon-home.png",
+            "selectedIconPath": "assets/icon/icon-home-active.png",
+            "text": "首页"
+        },
+        {
+            "pagePath": "pages/logs/logs",
+            "iconPath": "assets/icon/icon-user.png",
+            "selectedIconPath": "assets/icon/icon-user-active.png",
+            "text": "我的"
+        }
+    ]
+},
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "旅客申报",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

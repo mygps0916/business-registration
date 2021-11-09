@@ -1,0 +1,134 @@
+
+.content{
+  width: auto;
+  height: auto;
+  margin: 5rpx;
+  padding-bottom: 30rpx;
+}
+
+.section {
+  display:flex;
+  flex-direction:row;
+  margin-top: 20rpx;
+  padding-bottom: 5px;
+}
+.section_gap{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.section_gap radio-group{
+  display: flex;
+  flex-direction: column;
+}
+.section_gap label{
+  display: flex;
+  flex-direction: row;
+}
+.input_name{
+  display: flex;
+  flex-direction: row;
+}
+.section_gap input{
+  border-bottom:1px solid #cdd1d3;
+  font-size: 12px;
+}
+.compnay-info{
+  margin-top: 10rpx;
+  border-radius: 1%;
+  box-shadow: 0 1px 1px rgba(0,0,0,.5);
+  border: 1px solid #cdd1d3;
+  padding: 10rpx;
+}
+
+.hr{
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+}
+
+.idCardTitle{
+  margin-left: 10rpx;
+}
+.idcardType label{
+  margin-right: 30rpx;
+}
+.btn-area{
+  margin-top: 20px;
+}
+Page{
+	background-color: #F7F7F7;
+}
+
+/* 最外层 */
+.IDCart_img_item{
+	margin-top: 20rpx;
+  border-radius: 1%;
+  box-shadow: 0 1px 1px rgba(0,0,0,.5);
+  border: 1px solid #cdd1d3;
+}
+/* END */
+
+/* 第二层 */
+.comp_idPhoto_item{
+  margin-top: 10rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.item_idPhoto{
+	margin-top: 10rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+/* END */
+
+/* 第三层 */
+.idPhoto{
+	width: 90%;
+	height: 280rpx;
+	background-color: #FFFFFF;
+	border: 2rpx dashed #CCCCCC;
+  text-align: center;
+  margin: 5rpx;
+}
+.comp_idPhoto{
+	width: 90%;
+	height: 350rpx;
+	background-color: #FFFFFF;
+	border: 2rpx dashed #CCCCCC;
+  text-align: center;
+  margin: 5rpx;
+}
+/* END */
+
+/* 图片 */
+.idPhoto_img{
+	width: 200rpx;
+	height: 200rpx;
+}
+.comp_idPhoto_img{
+	width: 300rpx;
+	height: 280rpx;
+}
+/* END */
+
+/* 文字 */
+.idPhoto_txt{
+	font-size: 22rpx;
+	color: #CCCCCC;
+	font-weight: normal;
+}
+/* END */
+
+/* 拍照后预览相框 */
+.front {
+	width: 100%;
+	height: 100%;
+}
+/* END */
