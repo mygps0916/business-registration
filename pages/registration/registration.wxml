@@ -38,7 +38,7 @@
               <radio class="radio" wx:for-items="{{decObjects}}" wx:if="{{item.categ==categ}}"  wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
                 <view class="input_name">{{item.name}}
                 <input wx:if="{{(item.name=='事业法人')&&(busFlag)}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入事业法人全称" />
-                <input wx:if="{{(item.name=='企业法人')&&(comFlag)}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入企业法人全称" />
+                <input wx:if="{{(item.name=='社会组织法人')&&(comFlag)}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入社会组织法人全称" />
                 <input wx:if="{{item.name=='其他组织'}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入其他组织全称" />
                 </view>
               </radio>

@@ -91,7 +91,7 @@ Page({
       this.setData({busFlag:true});
       this.setData({comFlag:false});
      
-    }else if(e.detail.value == '企业法人'){
+    }else if(e.detail.value == '社会组织法人'){
       this.setData({busFlag:false});
       this.setData({comFlag:true});
       
