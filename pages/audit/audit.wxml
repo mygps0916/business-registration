@@ -1,0 +1,62 @@
+<view class='view-page'>
+<navbar bg-color="#1296db" page-name="我的事项"></navbar>
+<view class="content">
+<block >
+    <view class="audit" bindtap="auditDetail">
+            <view class="auditState">
+                <text>审批通过</text>
+            </view>
+            <view class="company-info">
+                <view class="base-info">
+                     <text>机构名称：</text>
+                </view>
+                <view class="base-info">
+                     <text>法定代表人：</text>
+                     <text>XXX</text>
+                </view>
+                <view class="base-info">
+                     <text>申报事项：</text>
+                     <text>变更地址</text>
+                </view>
+                <view class="base-info">
+                     <text>申报结果：</text>
+                     <text>通过  </text>
+                     <text>2021-11-12</text>
+                </view>
+            </view>
+            <view class="company-Change">
+                <text>变更</text>
+            </view>
+     </view>
+    
+</block>
+<block >
+    <view class="audit" bindtap="auditDetail">
+            <view class="auditState">
+                <text>审批通过</text>
+            </view>
+            <view class="company-info">
+                <view class="base-info">
+                     <text>机构名称：</text>
+                </view>
+                <view class="base-info">
+                     <text>法定代表人：</text>
+                     <text>XXX</text>
+                </view>
+                <view class="base-info">
+                     <text>申报事项：</text>
+                     <text>变更地址</text>
+                </view>
+                <view class="base-info">
+                     <text>申报结果：</text>
+                     <text>通过  </text>
+                     <text>2021-11-12</text>
+                </view>
+            </view>
+            <view class="company-Change">
+                <text>变更</text>
+            </view>
+     </view>
+</block>
+</view>
+</view>

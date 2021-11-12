@@ -39,7 +39,7 @@
         "minifyWXML": true
     },
     "compileType": "miniprogram",
-    "libVersion": "2.19.4",
+    "libVersion": "2.4.3",
     "appid": "wx3935b3804e5a36a2",
     "projectname": "business-registration",
     "debugOptions": {

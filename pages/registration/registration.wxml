@@ -5,14 +5,14 @@
       <view class="compnay-info">
         <view class="section">
           <view class="nameTitle">企业/机构名称：</view>
-          <input class="input" name="companyName" placeholder="请输入企业/机构名称" />
+          <input class="input" name="companyName" value="{{companyInfo.companyName}}" placeholder="请输入企业/机构名称" />
         </view>
         <view class="section">
           <view class="section__title">机构属性:</view>
           <view class="section_gap">
           <view >
-          <radio-group  class="radio-group"  bindchange="compropChange">
-                <radio class="radio" wx:for-items="{{comProps}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+          <radio-group  class="radio-group" name="comPropName" bindchange="compropChange">
+                <radio class="radio" wx:for-items="{{comProps}}" wx:key="name"  value="{{item.name}}" checked="{{item.checked}}">
                  <view>{{item.name}}</view>
                 </radio>
             </radio-group>
@@ -23,8 +23,8 @@
           <view class="section__title">机构类别:</view>
           <view class="section_gap" >
           <view>
-          <radio-group  class="radio-group" bindchange="comcategChange">
-                <radio class="radio" wx:for-items="{{comCategs}}" wx:if="{{item.prop==prop}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+          <radio-group  class="radio-group" name="comCategName" bindchange="comcategChange">
+                <radio class="radio" wx:for-items="{{comCategs}}" wx:if="{{item.prop==comPropName}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
                 <view>{{item.name}}</view>
                 </radio>
             </radio-group>
@@ -34,8 +34,8 @@
         <view class="section">
           <view class="section__title">申报对象:</view>
           <view class="section_gap">
-            <radio-group class="radio-group" bindchange="decobjectChange">
-              <radio class="radio" wx:for-items="{{decObjects}}" wx:if="{{item.categ==categ}}"  wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+            <radio-group class="radio-group" name="decObjName" bindchange="decobjectChange">
+              <radio class="radio" wx:for-items="{{decObjects}}" wx:if="{{item.categ==comCategName}}"  wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
                 <view class="input_name">{{item.name}}
                 <input wx:if="{{(item.name=='事业法人')&&(busFlag)}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入事业法人全称" />
                 <input wx:if="{{(item.name=='社会组织法人')&&(comFlag)}}" style="width: 300rpx;"class="input" name="legalNum" placeholder="请输入社会组织法人全称" />
@@ -48,8 +48,8 @@
         <view class="section">
           <view class="section__title">申报事项:</view>
           <view class="section_gap">
-            <radio-group class="radio-group" bindchange="decitemChange">
-              <radio class="radio" wx:for-items="{{decItems}}" wx:if="{{(item.categ==categ)&&(item.objName==objName)}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+            <radio-group class="radio-group" name="decItemName" bindchange="decitemChange">
+              <radio class="radio" wx:for-items="{{decItems}}" wx:if="{{(item.categ==comCategName)&&(item.objName==decObjName)}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
                   <!-- <text>{{item.name}}</text> -->
                   <view>{{item.name}}</view>
               </radio>
@@ -197,6 +197,11 @@
         </view>
       </view>
     </view>
+     <radio-group  bindchange="radioSignature">
+        <label class="radio">
+            <radio value="r1"/>合法经营承诺函，点击阅读并签署！
+        </label>
+     </radio-group>
       <view class="btn-area">
         <button style="width: auto" type="primary" formType="submit">提交</button>
       </view>

@@ -13,7 +13,7 @@ Component({
     pageName:String,
     showNav: {
       type: Boolean,
-      value: false
+      value: true
     },
     bgColor:{
       type: String,
@@ -45,14 +45,15 @@ Component({
   methods: {
     //回退
     _navBack: function () {
+      console.log("回退")
       wx.navigateBack({
         delta: 1
-      })      
+      })
     },
     //回主页
     _toIndex: function () {
       wx.switchTab({
-        url: '/pages/tabBar/index/index'
+        url: '/pages/index/index'
       })
     },
   }

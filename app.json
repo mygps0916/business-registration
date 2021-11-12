@@ -1,5 +1,10 @@
 {
   "pages":[
+    "pages/login/login",
+    "pages/commitment/commitment",
+    "pages/shouxieban/shouxieban",
+    "pages/audit/audit",
+    "pages/detail/detail",
     "pages/registration/registration",
     "pages/index/index",
     "pages/frontOfIDCard/frontOfIDCard",
@@ -19,10 +24,16 @@
             "text": "首页"
         },
         {
+          "pagePath": "pages/audit/audit",
+          "iconPath": "assets/icon/icon-home.png",
+          "selectedIconPath": "assets/icon/icon-home-active.png",
+          "text": "我的事项"
+      },
+        {
             "pagePath": "pages/logs/logs",
             "iconPath": "assets/icon/icon-user.png",
             "selectedIconPath": "assets/icon/icon-user-active.png",
-            "text": "我的"
+            "text": "个人中心"
         }
     ]
 },

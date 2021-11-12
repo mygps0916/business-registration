@@ -1,0 +1,51 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    margin: 10rpx;
+}
+.audit{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+}
+.auditState{
+   width: 100rpx;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   background-color: #05a112;
+   padding: 10rpx;
+   border-radius: 2%;
+   box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+.company-info{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 2%;
+    box-shadow: 0 1px 1px rgba(0,0,0,.5);
+    background-color: #dbe8f0;
+}
+.base-info{
+    font-size: 12px;
+    padding-left: 10rpx;
+}
+.company-Change{
+   width: 100rpx;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   background-color: #1350c0;
+   padding: 10rpx;
+   border-radius: 2%;
+   box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+}
+
+.hr{
+    height:2px;
+    width: 100%;
+    background-color: black;
+    border-top: white solid 1px ;
+    border-bottom: white solid 1px;
+    opacity:0.2;
+}

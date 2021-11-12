@@ -1,0 +1,13 @@
+/* pages/shouxieban/shouxieban.wxss */
+/*手写板  */
+page{
+  background: #f6f6f6;
+}
+/*手写板  */
+.canvas-area{
+  margin-top: 10rpx;
+  border: 1px solid #cdd1d3;
+}
+.btns-canvaspd{
+  margin-top: 20rpx;
+}

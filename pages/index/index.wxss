@@ -1,12 +1,16 @@
-.introduce{
-    display:flex;
-    flex-direction: row;
-    padding: 20rpx;
-    margin: 3rpx;
-    align-items: center;
+.page-intro{
     width: auto;
-    height: 300rpx;
-    background-color: #1296db;
+    height: 180px;
+    background-repeat:no-repeat;
+    background-size: 100% 180px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.intro-info{
+    display: flex;
+    flex-direction: column;
+    color: rgb(250, 244, 244);
 }
 .btn_Group{
     display:flex;
@@ -18,7 +22,7 @@
     flex-direction: row;
     padding-left: 40rpx;
     margin: 10rpx;
-    align-items: center;
+    justify-items: center;
     width: auto;
     height: 150rpx;
     border-radius: 2%;
@@ -27,8 +31,8 @@
 }
 
 .intro_pic image{
-    width:300rpx;
-    height:300rpx;
+    width:150rpx;
+    height:150rpx;
 }
 .intro-info{
     padding-left: 20rpx;
@@ -40,4 +44,5 @@
 }
 .btn-text{
     margin-left: 20rpx;
+    align-self: center;
 }

@@ -7,11 +7,13 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
+    /*
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     });
+    */
 
     //自定义导航栏
     let menuButtonObject = wx.getMenuButtonBoundingClientRect();
@@ -49,8 +51,8 @@ App({
     comProps = wx.getStorageSync('comProps');
     if(!comProps){
       comProps= [
-        { name: '营利性', },
-        { name: '非营利性',checked: 'true' },
+        { name: '营利性', checked: 'true'},
+        { name: '非营利性', },
       ];
     }
     wx.setStorageSync('comProps', comProps);
@@ -114,7 +116,13 @@ App({
    }
    wx.setStorageSync('decItems', decItems);
   },
+  detail:function(e){
+    //wx.setStorageSync('movieId',e.currentTarget.id );
+    wx.navigateTo({
+        url: '../detail/detail?id='+e.currentTarget.id
+    })
+  },
   globalData: {
-    userInfo: null
+    //userInfo: null
   }
 })

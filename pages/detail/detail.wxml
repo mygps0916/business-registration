@@ -1,0 +1,66 @@
+<view class='view-page'>
+    <navbar bg-color="#1296db" page-name="审批详情"></navbar>
+    <view class="page-content">
+        <view class="page-intro" style="background-image:url(/assets/img/index_img01.png) ;">
+            <view class="intro-info">
+                <text>注册登记管理</text>
+                <text>小程序注册登记管理，方便、快捷！</text>
+            </view>
+        </view>
+        <view class="page-detail-img" style="background-image: url(/assets/img/index_img02.png);">
+        <view class="page-detail">
+            <view class="detail-title">
+                <text>注册地址电子自动回执单</text>
+            </view>
+            <view class="hr"></view>
+            <view class="detail-info">
+                <view class="company-name">
+                    <text>XXXXX公司：</text>
+                </view>
+                <view class="company-info">
+                    <view class="info-item">
+                        <text>你本人/机构于2021年11月12日</text>
+                    </view>
+                    <view class="info-item">
+                        <text>申报事项：</text>
+                        <text>地址变更</text>
+                    </view>
+                    <view class="info-item">
+                        <text>申报属性：</text>
+                        <text>营利性</text>
+                    </view>
+                    <view class="info-item">
+                        <text>申报类别：</text>
+                        <text>企业</text>
+                    </view>
+                    <view class="info-item">
+                        <text>统一信用代码：</text>
+                        <text>493743897439733979</text>
+                    </view>
+                    <view class="info-item">
+                        <text>本区注册地址：</text>
+                        <text>崖州区崖州大道4号B21-5楼</text>
+                    </view>
+                </view>
+                <view class="audit-state">
+                    <text>审批通过!</text>
+                </view>
+                <view class="info-end">
+                    <view class="end-title">
+                        <text>审批单位：三亚市崖州区科技工业信息化局</text>
+                        <text>日期：2021-11-12</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </view>
+        <view class="btn-group">
+                    <button class="btn_item" bindtap="copyAuditDetail">
+                        <text>点击复制地址</text>
+                    </button>
+                    <button class="btn_item" bindtap="saveAuditDetail">
+                        <text>点击保存</text>
+                    </button>
+            </view>
+    </view>
+</view>
